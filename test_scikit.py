@@ -27,7 +27,7 @@ class TestClass():
     y_pred_test = test_model.predict(diabetes_x_test)
 
 
-
+    # Test_ID NF-2
     def test_save_and_load_model(self):
         # Create linear regression object
         model = LinearRegression()
@@ -40,7 +40,9 @@ class TestClass():
         load_y_pred = model2.predict(self.diabetes_x_test)
 
         assert diabetes_y_pred.all() == load_y_pred.all()
-
+    
+    
+    # Test_ID NF-3
     @pytest.mark.parametrize('execution_number', range(20))
     def test_reliability(self, execution_number):
         model = LinearRegression()
@@ -49,7 +51,9 @@ class TestClass():
 
         # Compare every element
         assert diabetes_y_pred.all() == self.y_pred_test.all()
-
+    
+    
+    # Test_ID NF-9
     @pytest.mark.parametrize('n_set', range(150))
     def test_volume_lin_reg(self, n_set):
         X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])
